@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "D:\\version\\tokyo\\normal_tokyo\\comandliblp\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
+        "outputFile": "E:\\work\\apps\\mylib\\andlib\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values\\values.xml",
         "map": [
             {
                 "to": {
@@ -11,7 +11,7 @@
                     "endOffset": 108
                 },
                 "from": {
-                    "file": "D:\\version\\tokyo\\normal_tokyo\\comandliblp\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "file": "E:\\work\\apps\\mylib\\andlib\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,
@@ -30,7 +30,7 @@
                     "endOffset": 164
                 },
                 "from": {
-                    "file": "D:\\version\\tokyo\\normal_tokyo\\comandliblp\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "file": "E:\\work\\apps\\mylib\\andlib\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 3,
                         "startColumn": 4,
@@ -49,7 +49,7 @@
                     "endOffset": 217
                 },
                 "from": {
-                    "file": "D:\\version\\tokyo\\normal_tokyo\\comandliblp\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "file": "E:\\work\\apps\\mylib\\andlib\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 4,
                         "startColumn": 4,
@@ -68,7 +68,7 @@
                     "endOffset": 268
                 },
                 "from": {
-                    "file": "D:\\version\\tokyo\\normal_tokyo\\comandliblp\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "file": "E:\\work\\apps\\mylib\\andlib\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 5,
                         "startColumn": 4,
@@ -87,7 +87,7 @@
                     "endOffset": 321
                 },
                 "from": {
-                    "file": "D:\\version\\tokyo\\normal_tokyo\\comandliblp\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "file": "E:\\work\\apps\\mylib\\andlib\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 6,
                         "startColumn": 4,
@@ -107,7 +107,7 @@
                     "endOffset": 630
                 },
                 "from": {
-                    "file": "D:\\version\\tokyo\\normal_tokyo\\comandliblp\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "file": "E:\\work\\apps\\mylib\\andlib\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 7,
                         "startColumn": 4,
@@ -128,7 +128,7 @@
                     "endOffset": 790
                 },
                 "from": {
-                    "file": "D:\\version\\tokyo\\normal_tokyo\\comandliblp\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
+                    "file": "E:\\work\\apps\\mylib\\andlib\\build\\intermediates\\bundles\\debug\\res\\values\\values.xml",
                     "position": {
                         "startLine": 14,
                         "startColumn": 4,
