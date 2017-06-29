@@ -1,12 +1,12 @@
 package com.andlib.lp;
 
 import android.app.Activity;
-import android.app.Application;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.AsyncTask;
 
 import com.andlib.lp.util.L;
+import com.mob.MobApplication;
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiskCache;
 import com.nostra13.universalimageloader.cache.disc.naming.Md5FileNameGenerator;
 import com.nostra13.universalimageloader.cache.memory.impl.WeakMemoryCache;
@@ -28,7 +28,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 /** 717219917@qq.com  2017/6/6 14:32 */
-public class App extends Application {
+public class App extends MobApplication {
 
     private  static List<Activity> activityList = new LinkedList<Activity>();
     public static DbManager.DaoConfig daoConfig;// xutils数据库配置
@@ -40,7 +40,6 @@ public class App extends Application {
         L.i("进入应用切入点....");
         x.Ext.init(this);     // 初始化xutils3
         x.Ext.setDebug(true); // 输出debug日志
-
         if (isCash) {// 进行捕捉崩溃日志
             CrashHandler crashHandler = CrashHandler.getInstance();
             crashHandler.init(getApplicationContext());
