@@ -28,8 +28,11 @@ dependencies {
     compile files('libs/ksoap2-android-assembly-2.5.2-jar-with-dependencies.jar')
     compile files('libs/universal-1.9.4.jar')
     compile files('libs/xUtils-3.3.34.jar')
-    compile files('libs/MobCommons-2017.0607.1736.jar')//mob 通用库
-    compile files('libs/MobTools-2017.0607.1736.jar')  //mob 工具类
-    compile files('libs/SMSSDK-3.0.0.jar')             //短信依赖上面两个jar
-
+    compile files('libs/MobCommons-2017.0607.1736.jar')
+    //mob 通用库
+    compile files('libs/MobTools-2017.0607.1736.jar')
+    //mob 工具类
+    compile files('libs/SMSSDK-3.0.0.jar')
+    //短信依赖上面两个jar
+    compile files('libs/mobAPI-2.0.0.jar')
 }
