@@ -1,6 +1,6 @@
 group = "andlp"
-version = 1.0
-project.archivesBaseName = "artifactId"
+version = "1.0"
+project.archivesBaseName = "andlib"
 
 apply plugin: 'com.jfrog.bintray'
 apply plugin: 'com.github.dcendents.android-maven'
@@ -9,6 +9,12 @@ task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs
     classifier = 'sources'
 }
+
+//task myJar(type: Jar) {
+//    from "/build/bundles/classes.jar"
+ //   classifier = 'andlib-'+version
+//}
+
 
 task javadoc(type: Javadoc) {
     source = android.sourceSets.main.java.srcDirs
@@ -35,6 +41,7 @@ javadoc {
 artifacts {
     archives sourcesJar
     archives javadocJar
+    //archives myJar
 }
 
 install {
@@ -84,7 +91,7 @@ bintray {
 
     pkg {
         userOrg = "andlp" //这个是你创建时的organization,必须要有，不然没办法找到指定路径
-        repo = "andlp"
+        repo = "android"   //组织机构下  包名上面一层
         name = "com.andlp.lib"
         licenses = ['Apache-2.0']
         vcsUrl = "https://github.com/liupeng110/mylib"
@@ -102,3 +109,6 @@ bintray {
         }
     }
 }
+
+
+
