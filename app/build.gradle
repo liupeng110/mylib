@@ -29,5 +29,6 @@ dependencies {
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
     compile project(path: ':andlib')
-
+   //855c03f1539779c7f6328c8ee67be30703eaeff9
+    //liupeng110
 }
