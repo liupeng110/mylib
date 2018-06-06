@@ -2,9 +2,23 @@ package com.andlp.mylib.activity;
 
 import android.app.NotificationManager;
 import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.IntentFilter;
+import android.graphics.SurfaceTexture;
+import android.hardware.Camera;
+import android.hardware.camera2.CameraAccessException;
+import android.hardware.camera2.CameraCharacteristics;
+import android.hardware.camera2.CameraDevice;
+import android.hardware.camera2.CameraManager;
+import android.hardware.camera2.params.StreamConfigurationMap;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.support.annotation.RequiresApi;
 import android.util.Base64;
+import android.util.Log;
+import android.util.Size;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -75,16 +89,113 @@ public class Activity_Main extends Activity_Base  {
         tv.setText("加载正常$$$");
         mNotificationManager = (NotificationManager)getSystemService(NOTIFICATION_SERVICE);
         tv.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
             @Override public void onClick(View v) {
                 tv.setText("onclick"+(onClickNum++));
-                getSms();
+//                getSms();
+                openCamera();
             }
         });
 
         initSMS();
     }            //02
 
-   //--------短信
+
+    private Handler mHandler;
+    private HandlerThread mThreadHandler;
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    private void openCamera(){
+        mThreadHandler = new HandlerThread("CAMERA2");
+        mThreadHandler.start();
+        mHandler = new Handler(mThreadHandler.getLooper());
+        try {
+            //获得CameraManager
+            CameraManager cameraManager = (CameraManager)  getSystemService(Context.CAMERA_SERVICE);
+            //获得属性
+            CameraCharacteristics characteristics = cameraManager.getCameraCharacteristics("0");
+            //支持的STREAM CONFIGURATION
+            StreamConfigurationMap map = characteristics.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP);
+            //显示的size
+              Size mPreviewSize = map.getOutputSizes(SurfaceTexture.class)[0];
+            //打开相机
+            cameraManager.openCamera("0", mCameraDeviceStateCallback, mHandler);
+        } catch (CameraAccessException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private CameraDevice.StateCallback mCameraDeviceStateCallback = new CameraDevice.StateCallback() {
+
+        @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+        @Override
+        public void onOpened(CameraDevice camera) {
+            try {
+//                startPreview(camera);
+                Log.e("摄像头","打开摄像头成功");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        @Override
+        public void onDisconnected(CameraDevice camera) {
+
+        }
+
+        @Override
+        public void onError(CameraDevice camera, int error) {
+
+        }
+    };
+
+
+
+    private static boolean checkCameraFacing(final int facing) {
+        if (getSdkVersion() < Build.VERSION_CODES.GINGERBREAD) {
+            return false;
+        }
+        final int cameraCount = Camera.getNumberOfCameras();
+        Camera.CameraInfo info = new Camera.CameraInfo();
+        for (int i = 0; i < cameraCount; i++) {
+            Camera.getCameraInfo(i, info);
+            if (facing == info.facing) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 检查设备是否有摄像头
+     * @return
+     */
+    public static boolean hasCamera() {
+        return hasBackFacingCamera() || hasFrontFacingCamera();
+    }
+
+    /**检查设备是否有后置摄像头
+     * @return
+     */
+    public static boolean hasBackFacingCamera() {
+        final int CAMERA_FACING_BACK = 0;
+        return checkCameraFacing(CAMERA_FACING_BACK);
+    }
+
+    /**检查设备是否有前置摄像头
+     * @return
+     */
+    public static boolean hasFrontFacingCamera() {
+        final int CAMERA_FACING_BACK = 1;
+        return checkCameraFacing(CAMERA_FACING_BACK);
+    }
+
+    public static int getSdkVersion() {
+        return android.os.Build.VERSION.SDK_INT;
+    }
+
+
+    //--------短信
     private void initSMS(){
       api = ResHelper.forceCast(MobAPI.getAPI(UserCenter.NAME));//初始化用户体系
        eh=new EventHandler(){

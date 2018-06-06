@@ -6,7 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/andlib/andlib.iml" filepath="$PROJECT_DIR$/andlib/andlib.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/mylib.iml" filepath="$PROJECT_DIR$/mylib.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/mylib.iml" filepath="$PROJECT_DIR$/.idea/mylib.iml" />
       <module fileurl="file://$PROJECT_DIR$/mylib.iml" filepath="$PROJECT_DIR$/mylib.iml" />
     </modules>
   </component>
